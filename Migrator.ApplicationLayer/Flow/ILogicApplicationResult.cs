@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Migrator.ApplicationLayer.Flow
 {
-    public interface IUpdateResult : IResult
+    public interface ILogicApplicationResult : IResult
     {
-        bool IsSuccessful
     }
 }
