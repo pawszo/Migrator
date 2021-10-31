@@ -1,10 +1,7 @@
 ﻿using Migrator.ApplicationLayer.DataAccess;
 using Migrator.ApplicationLayer.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Migrator.InfrastructureLayer.Model
 {
@@ -18,28 +15,38 @@ namespace Migrator.InfrastructureLayer.Model
 
         public IEnumerable<IFeature> Features { get; }
 
-        public IDictionary<string, IAttribute> Attributes { get; }
+        public IEnumerable<IAttribute> Attributes { get; }
 
         public int Version { get; }
 
-        protected ModelBase(string id, string symbol, string name, int version = 1)
+        protected ModelBase(string id, string symbol, string name, int version = 1, IEnumerable<IFeature> features = null, IEnumerable<IAttribute> attributes = null)
         {
             Id = id;
             Symbol = symbol;
             Name = name;
             Version = version;
-            Features = new List<IFeature>();
-            Attributes = new List<IAttribute>();
+            Features = features ?? new List<IFeature>();
+            Attributes = attributes ?? new List<IAttribute>();
         }
 
-        protected ModelBase(string id, string symbol, string name, IEnumerable<IFeature> features, int version = 1) : this(id, symbol, name, version)
+        public override string ToString()
         {
-            Features = features;
+            return $"ModelType = {this.GetType()}, Id = {Id}, Symbol = {Symbol}, Name = {Name}, Version = {Version}";
         }
 
-        protected ModelBase(string id, string symbol, string name, IEnumerable<IFeature> features, int version = 1) : this(id, symbol, name, version)
+        public override bool Equals(object o)
         {
-            Features = features;
+            if(o != null && o is IModel model)
+            {
+                return Id == model.Id
+                    && Name == model.Name
+                    && Symbol == model.Symbol
+                    && Version == model.Version
+                    && (Features == model.Features || Features != null && Features.SequenceEqual(model.Features))
+                    && (Attributes == model.Attributes || Attributes != null && Attributes.SequenceEqual(model.Attributes));
+            }
+
+            return false;
         }
     }
 }
