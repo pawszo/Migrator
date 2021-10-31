@@ -6,5 +6,6 @@ namespace Migrator.ApplicationLayer.Flow
     {
         string Message { get; }
         DateTime CreatedAt { get; }
+        bool IsSuccessful { get; }
     }
 }

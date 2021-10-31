@@ -1,0 +1,29 @@
+﻿namespace Migrator.ApplicationLayer.Enums
+{
+    public enum ModuleObject
+    {
+        Order,
+        Customer,
+        Supplier,
+        Stock,
+        Product,
+        Configuration,
+        Invoice,
+        GeneralLedger,
+        Transaction,
+        User,
+        Role,
+        GeneralData,
+        Price,
+        Warehouse,
+        Process,
+        Archive,
+        Resource,
+        CostCenter,
+        Company,
+        RegionalSettings,
+        Asset,
+        Account,
+        AccountRule
+    }
+}

@@ -9,7 +9,7 @@ namespace Migrator.ApplicationLayer.Flow
 {
     public interface IFlowController
     {
-        IEnumerable<IModel> ReadSource();
-        bool
+        IDictionary<string, IEnumerable<IModel>> ReadSource();
+        IResult ProcessData<T>(Func<ITaskResult<T>, IDictionary<string,IEnumerable<IModel>>, IDataProcessingResult>) where T : IModel;
     }
 }

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Migrator.ApplicationLayer.DataAccess
 {
-    public interface IParameter
+    public interface IAttribute
     {
-        string Name { get; set; }
+        public string InternalId { get; }
+        public string Name { get; }
+        public IEnumerable<IDataItem> DataItems { get; }
 
     }
 }

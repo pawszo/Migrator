@@ -7,6 +7,8 @@ namespace Migrator.ApplicationLayer.DataAccess
     {
         object Origin { get; }
         DateTime CreatedAt { get; }
-        IDictionary<string, T> GetFields<T>();
+        IReadOnlyDictionary<string, object> ValuePairs { get;  }
+        bool AddValue<T>(T value, string key);
+        IReadOnlyCollection<string> Keys { get; }
     }
 }

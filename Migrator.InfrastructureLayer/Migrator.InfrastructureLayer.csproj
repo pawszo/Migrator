@@ -6,12 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Migrator.ApplicationLayer\Migrator.ApplicationLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-    <Folder Include="Logic\" />
-    <Folder Include="Model\" />
+    <ProjectReference Include="..\Migrator.DomainLayer\Migrator.DomainLayer.csproj" />
   </ItemGroup>
 
 </Project>

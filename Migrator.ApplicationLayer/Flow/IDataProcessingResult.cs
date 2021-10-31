@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Migrator.ApplicationLayer.Flow
 {
-    public interface IActionResult : IResult
+    public interface IDataProcessingResult : IResult
     {
-        bool IsSuccessful { get; }
-        object Response { get; }
+        IEnumerable<ITaskResult> SubTasks { get; }
     }
 }

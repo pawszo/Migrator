@@ -8,6 +8,5 @@ namespace Migrator.ApplicationLayer.Flow
 {
     public interface IUpdateResult : IResult
     {
-        bool IsSuccessful
     }
 }
