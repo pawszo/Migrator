@@ -7,7 +7,7 @@ namespace Migrator.InfrastructureLayer.Model
 {
     public abstract class ModelBase : IModel
     {
-        public string Id { get; }
+        public string InternalId { get; }
 
         public string Symbol { get; }
 
@@ -19,9 +19,9 @@ namespace Migrator.InfrastructureLayer.Model
 
         public int Version { get; }
 
-        protected ModelBase(string id, string symbol, string name, int version = 1, IEnumerable<IFeature> features = null, IEnumerable<IAttribute> attributes = null)
+        protected ModelBase(string internalId, string symbol, string name, int version = 1, IEnumerable<IFeature> features = null, IEnumerable<IAttribute> attributes = null)
         {
-            Id = id;
+            InternalId = internalId;
             Symbol = symbol;
             Name = name;
             Version = version;
@@ -31,14 +31,14 @@ namespace Migrator.InfrastructureLayer.Model
 
         public override string ToString()
         {
-            return $"ModelType = {this.GetType()}, Id = {Id}, Symbol = {Symbol}, Name = {Name}, Version = {Version}";
+            return $"ModelType = {this.GetType()}, Id = {InternalId}, Symbol = {Symbol}, Name = {Name}, Version = {Version}";
         }
 
         public override bool Equals(object o)
         {
             if(o != null && o is IModel model)
             {
-                return Id == model.Id
+                return InternalId == model.InternalId
                     && Name == model.Name
                     && Symbol == model.Symbol
                     && Version == model.Version

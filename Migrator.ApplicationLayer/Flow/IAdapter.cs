@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Migrator.ApplicationLayer.Flow
 {
-    public interface IAdapter<T> where T : IModule
+    public interface IAdapter<T> where T : ICommonModel
     {
         IEnumerable<T> GetAll();
         IEnumerable<IUpdateResult> UpdateAll(IEnumerable<T> items);
