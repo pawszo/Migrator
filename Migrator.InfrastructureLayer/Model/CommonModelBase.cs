@@ -10,7 +10,7 @@ namespace Migrator.InfrastructureLayer.Model
 
         public ICommonModelDetail Detail { get; protected set; }
 
-        protected CommonModelBase(
+        protected CommonModelBase (
             string internalId, 
             string symbol, 
             string name, 
